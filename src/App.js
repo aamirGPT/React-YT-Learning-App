@@ -1,12 +1,14 @@
 import "./App.css";
+import AboutUs from "./components/AboutUs";
 import Navbar from "./components/Navbar";
-import TextInput from "./components/TextInput";
+// import TextInput from "./components/TextInput";
 
 function App() {
     return (
         <>
             <Navbar />
-            <TextInput Heading="Type the text to edit"/>
+            <AboutUs />
+            {/* <TextInput Heading="Type the text to edit"/> */}
         </>
     );
 }
