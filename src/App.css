@@ -36,3 +36,12 @@
     transform: rotate(360deg);
   }
 }
+
+/* User Defined */
+.NavCss{
+  justify-content: space-between;
+}
+
+.switchCss{
+  margin: 0;
+}

@@ -1,38 +1,14 @@
 import React from "react";
-import { useState } from "react";
 
-export default function AboutUs() {
-    const [darkBtnText, setdarkBtnText] = useState("Enable Dark Mode");
-    const [BtnColor, setbtnColor] = useState('btn btn-primary my-3');
-    const [darkmode, setdarkmode] = useState({
-        color: 'black',
-        backgroundColor: 'white'
-    });
-    const toggleMode = () => {
-        if (darkmode.color === 'black') {
-            setdarkmode({
-                color: "white",
-                backgroundColor: "#435585",
-                borderColor: "1px solid white",
-            });
-            setdarkBtnText("Enable Light Mode");
-            setbtnColor("btn btn-light my-3");
-        }
-        else {
-            setdarkmode({
-                color: 'black',
-                backgroundColor: 'white'
-            });
-            setdarkBtnText("Enable Dark Mode");
-            setbtnColor("btn btn-primary my-3");
-        }
-    }
+export default function AboutUs(props) {
     return (
-        <div className="container" style={darkmode}>
-            <h1 className="my-3">
-                About us
-            </h1>
-            <div className="accordion" id="accordionExample" style={darkmode}>
+        <div className="container" data-bs-theme={props.mode}>
+            <h1 className="my-3">About us</h1>
+            <div
+                className="accordion"
+                id="accordionExample"
+                data-bs-theme={props.mode}
+            >
                 <div className="accordion-item">
                     <h2 className="accordion-header">
                         <button
@@ -42,7 +18,6 @@ export default function AboutUs() {
                             data-bs-target="#collapseOne"
                             aria-expanded="true"
                             aria-controls="collapseOne"
-                            style={darkmode}
                         >
                             Accordion Item #1
                         </button>
@@ -52,7 +27,7 @@ export default function AboutUs() {
                         className="accordion-collapse collapse show"
                         data-bs-parent="#accordionExample"
                     >
-                        <div className="accordion-body" style={darkmode}>
+                        <div className="accordion-body">
                             <strong>
                                 This is the first item's accordion body.
                             </strong>{" "}
@@ -77,7 +52,6 @@ export default function AboutUs() {
                             data-bs-target="#collapseTwo"
                             aria-expanded="false"
                             aria-controls="collapseTwo"
-                            style={darkmode}
                         >
                             Accordion Item #2
                         </button>
@@ -87,7 +61,7 @@ export default function AboutUs() {
                         className="accordion-collapse collapse"
                         data-bs-parent="#accordionExample"
                     >
-                        <div className="accordion-body" style={darkmode}>
+                        <div className="accordion-body">
                             <strong>
                                 This is the second item's accordion body.
                             </strong>{" "}
@@ -112,7 +86,6 @@ export default function AboutUs() {
                             data-bs-target="#collapseThree"
                             aria-expanded="false"
                             aria-controls="collapseThree"
-                            style={darkmode}
                         >
                             Accordion Item #3
                         </button>
@@ -122,7 +95,7 @@ export default function AboutUs() {
                         className="accordion-collapse collapse"
                         data-bs-parent="#accordionExample"
                     >
-                        <div className="accordion-body" style={darkmode}>
+                        <div className="accordion-body">
                             <strong>
                                 This is the third item's accordion body.
                             </strong>{" "}
@@ -139,9 +112,6 @@ export default function AboutUs() {
                     </div>
                 </div>
             </div>
-            <button type="button" className={BtnColor} onClick={toggleMode}>
-                {darkBtnText}
-            </button>
         </div>
     );
 }

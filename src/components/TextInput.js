@@ -27,7 +27,7 @@ export default function TextInput(props) {
 
     return (
         <>
-            <div className="container my-3">
+            <div className="container my-3" data-bs-theme={props.mode}>
                 <div className="form-floating">
                     <textarea
                         className="form-control"
