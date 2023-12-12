@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 export default function Navbar(props) {
     return (
@@ -7,9 +8,9 @@ export default function Navbar(props) {
                 className={`navbar navbar-expand-lg navbar-${props.mode} bg-${props.mode}`}
             >
                 <div className="container-fluid">
-                    <a className="navbar-brand" href="/">
+                    <Link className="navbar-brand" to="/">
                         ReactLearning
-                    </a>
+                    </Link>
                     <button
                         className="navbar-toggler"
                         type="button"
@@ -26,16 +27,16 @@ export default function Navbar(props) {
                         id="navbarNavAltMarkup"
                     >
                         <div className="navbar-nav">
-                            <a
+                            <Link
                                 className="nav-link active"
                                 aria-current="page"
-                                href="/"
+                                to="/"
                             >
                                 Home
-                            </a>
-                            <a className="nav-link" href="/">
+                            </Link>
+                            <Link className="nav-link" to="/AboutUs">
                                 About
-                            </a>
+                            </Link>
                         </div>
                         <div className="form-check form-switch switchCss">
                             <input

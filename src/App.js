@@ -4,15 +4,16 @@ import AboutUs from "./components/AboutUs";
 import Navbar from "./components/Navbar";
 import TextInput from "./components/TextInput";
 import Alert from "./components/Alert";
+import { BrowserRouter as Router, Routes, Route} from "react-router-dom";
 
 function App() {
-    const [theme, setTheme] = useState('light');
+    const [theme, setTheme] = useState("light");
     const [alert, setAlert] = useState(null);
 
-    const showAlert = (type, message) => { 
+    const showAlert = (type, message) => {
         setAlert({
             Type: type,
-            Message: message
+            Message: message,
         });
         setTimeout(() => {
             setAlert(null);
@@ -20,25 +21,39 @@ function App() {
     };
 
     const toggleMode = () => {
-        if (theme === 'light') {
-            setTheme('dark');
+        if (theme === "light") {
+            setTheme("dark");
             document.body.style.backgroundColor = "#343a40";
             document.body.style.color = "White";
             showAlert("success", "Dark Theme Enabled");
-        }
-        else {
-            setTheme('light');
+        } else {
+            setTheme("light");
             document.body.style.backgroundColor = "#fff";
             document.body.style.color = "black";
             showAlert("success", "Light Theme Enabled");
         }
-    }
+    };
     return (
         <>
-            <Navbar mode={theme} toggleMode={toggleMode} />
-            <Alert alert={alert} />
-            <AboutUs mode={theme} />
-            <TextInput Heading="Type the text to edit" mode={theme} />
+            <Router>
+                <Navbar mode={theme} toggleMode={toggleMode} />
+                <Alert alert={alert} />
+                <Routes>
+                    <Route
+                        path="/AboutUs"
+                        element={<AboutUs mode={theme} />}
+                    ></Route>
+                    <Route
+                        path="/"
+                        element={
+                            <TextInput
+                                Heading="Type the text to edit"
+                                mode={theme}
+                            />
+                        }
+                    ></Route>
+                </Routes>
+            </Router>
         </>
     );
 }
