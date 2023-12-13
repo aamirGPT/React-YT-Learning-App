@@ -43,24 +43,28 @@ export default function TextInput(props) {
                     <button
                         className="btn btn-primary m-2"
                         onClick={convertToUpper}
+                        disabled={text.length === 0}
                     >
                         Convert to UpperCase
                     </button>
                     <button
                         className="btn btn-primary m-2"
                         onClick={convertToLower}
+                        disabled={text.length === 0}
                     >
                         Convert to LowerCase
                     </button>
                     <button
                         className="btn btn-primary m-2"
                         onClick={clearText}
+                        disabled={text.length === 0}
                     >
                         Clear Text
                     </button>
                     <button
                         className="btn btn-primary m-2"
                         onClick={reverseText}
+                        disabled={text.length === 0}
                     >
                         Reverse Text
                     </button>
