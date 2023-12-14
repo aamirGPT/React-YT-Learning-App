@@ -28,6 +28,7 @@ export default function TextInput(props) {
     return (
         <>
             <div className="container my-3" data-bs-theme={props.mode}>
+                <div className="my-3">Processed Text: {pText}</div>
                 <div className="form-floating">
                     <textarea
                         className="form-control"
@@ -39,37 +40,36 @@ export default function TextInput(props) {
                     ></textarea>
                     <label htmlFor="floatingTextarea2">{props.Heading}</label>
                 </div>
-                <div className="container my-2 p-0">
+                <div className=" btncontainer container my-2 p-0">
                     <button
-                        className="btn btn-primary m-2"
+                        className="btn btn-primary"
                         onClick={convertToUpper}
                         disabled={text.length === 0}
                     >
                         Convert to UpperCase
                     </button>
                     <button
-                        className="btn btn-primary m-2"
+                        className="btn btn-primary"
                         onClick={convertToLower}
                         disabled={text.length === 0}
                     >
                         Convert to LowerCase
                     </button>
                     <button
-                        className="btn btn-primary m-2"
-                        onClick={clearText}
-                        disabled={text.length === 0}
-                    >
-                        Clear Text
-                    </button>
-                    <button
-                        className="btn btn-primary m-2"
+                        className="btn btn-primary"
                         onClick={reverseText}
                         disabled={text.length === 0}
                     >
                         Reverse Text
                     </button>
+                    <button
+                        className="btn btn-primary"
+                        onClick={clearText}
+                        disabled={text.length === 0}
+                    >
+                        Clear Text
+                    </button>
                 </div>
-                <div className="">Processed Text: {pText}</div>
             </div>
             <div className="container my-3">
                 <h3>Text Summary</h3>
